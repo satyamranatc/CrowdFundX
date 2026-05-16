@@ -5,12 +5,14 @@ import { api } from '../services/api';
 import { LayoutDashboard, Heart, PlusCircle, ExternalLink, Clock, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const DashboardPage = () => {
-  const { user } = useAppContext();
+  const { user, loading: authLoading } = useAppContext();
   const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (authLoading) return;
+    
     if (!user) {
       navigate('/login');
       return;
@@ -30,6 +32,7 @@ export const DashboardPage = () => {
     fetchMyCampaigns();
   }, [user, navigate]);
 
+  if (authLoading) return null;
   if (!user) return null;
 
   const totalRaised = campaigns.reduce((acc, curr) => acc + curr.raised, 0);

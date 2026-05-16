@@ -5,13 +5,15 @@ import { api } from '../services/api';
 import { ShieldCheck, Check, X, AlertTriangle, ExternalLink, Clock } from 'lucide-react';
 
 export const AdminPanel = () => {
-  const { user } = useAppContext();
+  const { user, loading: authLoading } = useAppContext();
   const navigate = useNavigate();
   const [pendingCampaigns, setPendingCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [processingId, setProcessingId] = useState(null);
 
   useEffect(() => {
+    if (authLoading) return;
+
     if (!user || user.role !== 'ADMIN') {
       navigate('/');
       return;
@@ -42,6 +44,7 @@ export const AdminPanel = () => {
     }
   };
 
+  if (authLoading) return null;
   if (!user || user.role !== 'ADMIN') return null;
 
   return (

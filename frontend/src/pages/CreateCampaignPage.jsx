@@ -6,7 +6,7 @@ import { categories } from '../data/initialData';
 import { UploadCloud, CheckCircle } from 'lucide-react';
 
 export const CreateCampaignPage = () => {
-  const { user } = useAppContext();
+  const { user, loading: authLoading } = useAppContext();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -45,6 +45,8 @@ export const CreateCampaignPage = () => {
     }
   };
 
+  if (authLoading) return null;
+  
   if (!user) {
     return (
       <div className="min-h-screen bg-gray-50 py-20 flex justify-center">

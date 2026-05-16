@@ -72,6 +72,34 @@ export const initialCampaigns = [
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000",
     createdAt: new Date().toISOString(),
     updates: []
+  },
+  {
+    id: "6",
+    title: "Support for Tribal Artisans in Bastar",
+    description: "Our initiative aims to provide modern tools and market access to tribal artisans in Bastar, Chhattisgarh. We need funds to set up a community workshop and conduct training sessions on sustainable crafting techniques.",
+    goal: 450000,
+    raised: 0,
+    donors: 0,
+    category: "Other",
+    status: "Pending",
+    creator: { id: "u6", name: "Sita Marandi" },
+    image: "https://images.unsplash.com/photo-1544650039-22886fbb4323?auto=format&fit=crop&q=80&w=1000",
+    createdAt: new Date().toISOString(),
+    updates: []
+  },
+  {
+    id: "7",
+    title: "Mobile Medical Van for Rural Villages",
+    description: "Many villages in remote areas lack basic healthcare facilities. We are raising funds to purchase and equip a mobile medical van that will travel to these villages twice a week, providing free checkups and essential medicines.",
+    goal: 1200000,
+    raised: 0,
+    donors: 0,
+    category: "Medical",
+    status: "Pending",
+    creator: { id: "u7", name: "Health For All NGO" },
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000",
+    createdAt: new Date().toISOString(),
+    updates: []
   }
 ];
 
